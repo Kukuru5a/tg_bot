@@ -7,9 +7,12 @@ import com.pengrad.telegrambot.request.SendMessage;
 import com.pengrad.telegrambot.response.GetChatResponse;
 import com.pengrad.telegrambot.response.SendResponse;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
-public class BotController {
+@Getter
+@Setter
+public class BotStarter extends Scenarios{
     private final String botToken = "7115793378:AAGz0Ce-inF1o9mk9w1UagOc6yfQ74vlnfo";
     private final String channelId = "@my_channel_for_bot";
     private final long chatId = -1002070731422L;
@@ -18,7 +21,7 @@ public class BotController {
     GetChat getChat = new GetChat(channelId);
     GetChatResponse response = bot.execute(getChat);
 
-    String messageText = "HelloWorld";
+    String messageText = MessageBox.greeting();
     SendMessage request = new SendMessage(chatId, messageText).parseMode(ParseMode.HTML);
     SendResponse response1 = bot.execute(request);
 }

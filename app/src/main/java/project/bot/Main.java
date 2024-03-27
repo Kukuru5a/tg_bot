@@ -1,13 +1,13 @@
 package project.bot;
 
-import project.bot.model.BotController;
+import project.bot.model.BotStarter;
 
 public class Main {
     public static void main(String[] args) {
-        var controller = new BotController();
+        var bot = new BotStarter();
 
 
-        var response = controller.getResponse1();
+        var response = bot.getResponse1();
         if (response.isOk()) {
             System.out.println("success");
         } else {
